@@ -63,4 +63,4 @@ Pendientes a Implementar:
 
 ## Linux
 
-**_No implementado aun_**
+**_No implementado aún_**
