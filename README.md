@@ -29,11 +29,11 @@ subnet=192.168.35.0/24
 Forwarders=192.168.35.1
 ```
 
-**User: Usuario Administrativo local (Administrator o Administrador)**
-**DomainName: Nombre del dominio. Compuesto por nombre.tld**
-**SafeModeAdministratorPassword: Password por si es necesario entrar en modo a seguro al Controlador de Dominio**
-**Subnet: Rango de IP de la LAN con el CIDR**
-**Forwarder (No Implementado): IP del DNS que resuelve las peticiones que no pertenezcan al Dominio**
+##### User: Usuario Administrativo local (Administrator o Administrador)
+##### DomainName: Nombre del dominio. Compuesto por nombre.tld
+##### SafeModeAdministratorPassword: Password por si es necesario entrar en modo a seguro al Controlador de Dominio
+##### Subnet: Rango de IP de la LAN con el CIDR
+##### Forwarder (No Implementado): IP del DNS que resuelve las peticiones que no pertenezcan al Dominio
 
 
 
