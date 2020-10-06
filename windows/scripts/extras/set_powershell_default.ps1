@@ -1,0 +1,2 @@
+Write-Host "Estableciendo PowerShell como Consola por Defecto" -ForegroundColor Yellow
+Set-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion\WinLogon' -Name Shell -Value 'PowerShell.exe'

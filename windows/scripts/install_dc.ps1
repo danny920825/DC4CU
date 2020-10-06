@@ -1,9 +1,8 @@
 $Path = "c:\DC4CU\dc4cu.ini"
 $values = Get-Content $Path | Out-String | ConvertFrom-StringData
 $User = $values.User
-$PWord = ConvertTo-SecureString -String $values.Password -AsPlainText -Force
 $SPWord = ConvertTo-SecureString -String $values.SafeModeAdministratorPassword -AsPlainText -Force
-$Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $PWord
+
 
 $Params = @{
     CreateDnsDelegation = $false
@@ -22,13 +21,8 @@ $Params = @{
 
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools -Confirm
 Install-ADDSForest @Params
-Write-Host "Listo. Es necesario Reiniciar el servidor. Presione una tecla para Reiniciar" -ForegroundColor Orange
+Write-Host "Listo. Es necesario Reiniciar el servidor. Presione [Y|y] para Reiniciar" -ForegroundColor Green
 $input = Read-Host
+shutdown -r -t 00
 
-switch ($input) 
-     { 
-           '1' {
-		shutdown -r -t 00
-		}
-     }
 

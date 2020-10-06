@@ -10,13 +10,11 @@ function mostrarMenu
      Write-Host "=================================" -ForegroundColor Green
       
      
-     Write-Host "1) Instalar Git para Windows" -ForegroundColor Green
-     Write-Host "2) Instalar SSh"  -ForegroundColor Green
-     Write-Host "3) Agregar git y ssh al PATH Global" -ForegroundColor Green
-     Write-Host "4) Crear Archivo de Variables" -ForegroundColor Green
-     Write-Host "5) Verificar los requerimientos" -ForegroundColor Green
-     Write-Host "6) Instalar Controlador de Dominio" -ForegroundColor Green
-     Write-Host "7) Opciones Extras" -ForegroundColor Green
+
+     Write-Host "1) Crear Archivo de Variables" -ForegroundColor Green
+     Write-Host "2) Instalar Controlador de Dominio" -ForegroundColor Green
+     Write-Host "3) Establecer zona inversa en el DNS" -ForegroundColor Green
+     Write-Host "4) Opciones Extras" -ForegroundColor Green
 }
 
 do 
@@ -29,26 +27,23 @@ do
 
     switch ($input) 
      { 
-           '1' { 
+          '1'{ 
                 cls 
-                Write-Host "Instalando Git para Windows" -ForegroundColor Yellow
-		./scripts/install_git.ps1
-		Write-Host "Listo. Presione cualquier tecla para regresar al Menu" -ForegroundColor Yellow
+                ./scripts/copy_conf_file.ps1
                 pause 
-           } '2' { 
-                cls 
-                Write-Host "Instalando OpenSSH para Windows" -ForegroundColor Yellow
-		./scripts/install_ssh.ps1
-		Write-Host "Listo. Presione cualquier tecla para regresar al Menu" -ForegroundColor Yellow
-                pause 
- 
-           } '3' { 
-                cls 
-                'Tercera Opción' 
-           } 's' { 
+          }'2' { 
+               cls 
+               ./scripts/install_dc.ps1
+          }'3' { 
+               cls 
+               ./scripts/setup_reverse_zone.ps1
+          }'4' { 
+               cls 
+               ./scripts/extras.ps1
+          } 's' { 
                 return 
            }  
      } 
-     pause 
+      
 } 
 until ($input -eq 's')
